@@ -1,0 +1,65 @@
+.calendar {
+  max-width: 100%;
+  margin: 20px auto;
+  background-color: #333333;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  color: #FFFFFF;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.header button {
+  background: none;
+  border: none;
+  color: #1DB954;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.header button:hover {
+  color: #17a447;
+}
+
+.weekdays, .days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.weekday, .day, .emptyDay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  font-size: 1rem;
+}
+
+.weekday {
+  color: #a3a3a3;
+  font-weight: bold;
+}
+
+.day {
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.today {
+  background-color: #1DB954;
+  color: white;
+  border-radius: 50%;
+}
+
+.taskDay {
+  background-color: #ff4d4d;
+  color: white;
+  border-radius: 50%;
+}

@@ -1,6 +1,9 @@
+// src/App.tsx
+
 import React, { useReducer, useState } from 'react';
 import TodoInput from './components/TodoInput/TodoInput';
 import TodoList from './components/TodoList/TodoList';
+import CustomCalendar from './components/CustomCalendar/CustomCalendar'; // Импорт календаря
 import { Todo } from './types';
 import './App.css';
 
@@ -84,43 +87,60 @@ const App: React.FC = () => {
   return (
     <div className="app">
       <h1 className="app__title">ToDo App</h1>
-      <div className="app__counter">
-        <span>Active: {activeCount}</span>
-        <span>Completed: {completedCount}</span>
+
+      <div className="app__container">
+        {/* Боковая панель с меню */}
+        <div className="app__sidebar">
+          <div className="app__counter">
+            <span>Active: {activeCount}</span>
+            <span>Completed: {completedCount}</span>
+          </div>
+
+          <input 
+            type="text" 
+            placeholder="Search tasks..." 
+            value={searchTerm}
+            onChange={handleSearchChange}
+            className="app__search"
+          />
+
+          <div className="app__filters">
+            <button className="app__filter-button" onClick={() => setFilter('all')}>All</button>
+            <button className="app__filter-button" onClick={() => setFilter('active')}>Active</button>
+            <button className="app__filter-button" onClick={() => setFilter('completed')}>Completed</button>
+          </div>
+
+          <div className="app__sort">
+            <label>Sort by:</label>
+            <select value={sortOrder} onChange={(e) => handleSortChange(e.target.value as 'priority' | 'dueDate' | 'alphabetical')}>
+              <option value="priority">Priority</option>
+              <option value="dueDate">Due Date</option>
+              <option value="alphabetical">Alphabetical</option>
+            </select>
+          </div>
+
+          <button
+            className="app__delete-completed"
+            onClick={() => dispatch({ type: 'DELETE_COMPLETED' })}
+          >
+            Delete Completed
+          </button>
+
+          {/* Календарь для отображения задач */}
+          <CustomCalendar todos={todos} />
+        </div>
+
+        {/* Основная область контента */}
+        <div className="app__main">
+          <TodoInput onAdd={handleAddTodo} />
+          <TodoList 
+            todos={filteredTodos} 
+            onToggle={(id) => dispatch({ type: 'TOGGLE_TODO', id })} 
+            onDelete={(id) => dispatch({ type: 'DELETE_TODO', id })} 
+            onEdit={(id, text) => dispatch({ type: 'EDIT_TODO', id, text })}
+          />
+        </div>
       </div>
-      <input 
-        type="text" 
-        placeholder="Search tasks..." 
-        value={searchTerm}
-        onChange={handleSearchChange}
-        className="app__search"
-      />
-      <TodoInput onAdd={handleAddTodo} />
-      <div className="app__filters">
-        <button className="app__filter-button" onClick={() => setFilter('all')}>All</button>
-        <button className="app__filter-button" onClick={() => setFilter('active')}>Active</button>
-        <button className="app__filter-button" onClick={() => setFilter('completed')}>Completed</button>
-      </div>
-      <button
-        className="app__delete-completed"
-        onClick={() => dispatch({ type: 'DELETE_COMPLETED' })}
-      >
-        Delete Completed
-      </button>
-      <div className="app__sort">
-        <label>Sort by:</label>
-        <select value={sortOrder} onChange={(e) => handleSortChange(e.target.value as 'priority' | 'dueDate' | 'alphabetical')}>
-          <option value="priority">Priority</option>
-          <option value="dueDate">Due Date</option>
-          <option value="alphabetical">Alphabetical</option>
-        </select>
-      </div>
-      <TodoList 
-        todos={filteredTodos} 
-        onToggle={(id) => dispatch({ type: 'TOGGLE_TODO', id })} 
-        onDelete={(id) => dispatch({ type: 'DELETE_TODO', id })} 
-        onEdit={(id, text) => dispatch({ type: 'EDIT_TODO', id, text })}
-      />
     </div>
   );
 };
