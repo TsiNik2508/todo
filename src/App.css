@@ -15,6 +15,7 @@
   font-size: 2.5rem;
   margin-bottom: 20px;
   color: #FFFFFF;
+  text-align: center;
 }
 
 .app__container {
@@ -22,6 +23,7 @@
   width: 100%;
   max-width: 1200px;
   gap: 20px;
+  flex-direction: row;
 }
 
 .app__sidebar {
@@ -129,64 +131,32 @@
   background-color: #e04343;
 }
 
-.calendar {
-  width: 100%;
-  background-color: #333333;
-  border-radius: 10px;
-  padding: 20px;
-  color: #FFFFFF;
-  box-sizing: border-box;
-}
+@media (max-width: 768px) {
+  .app__container {
+    flex-direction: column;
+    align-items: center;
+  }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-}
+  .app__sidebar {
+    width: 100%;
+    margin-bottom: 20px;
+  }
 
-.header button {
-  background: none;
-  border: none;
-  color: #1DB954;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
+  .app__main {
+    width: 100%;
+  }
 
-.header button:hover {
-  color: #17a447;
-}
+  .app__title {
+    font-size: 2rem;
+  }
 
-.weekdays, .days {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-}
+  .app__search, .app__filter-button, .app__delete-completed {
+    width: 100%;
+  }
 
-.weekday, .day, .emptyDay {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 0;
-  font-size: 1rem;
-}
-
-.weekday {
-  color: #a3a3a3;
-  font-weight: bold;
-}
-
-.day {
-  cursor: pointer;
-}
-
-.today {
-  background-color: #1DB954;
-  color: white;
-  border-radius: 50%;
-}
-
-.taskDay {
-  background-color: #ff4d4d;
-  color: white;
-  border-radius: 50%;
+  .app__counter {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
 }

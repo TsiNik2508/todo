@@ -59,3 +59,21 @@
   background-color: #17a447;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
+
+@media (max-width: 768px) {
+  .todoInput {
+    flex-direction: column;
+  }
+
+  .todoInput__field,
+  .todoInput__date,
+  .todoInput__priority,
+  .todoInput__button {
+    width: 100%; 
+  }
+
+  .todoInput__button {
+    font-size: 1rem;
+    padding: 12px;
+  }
+}
