@@ -1,0 +1,106 @@
+@import 'react-datepicker/dist/react-datepicker.css';
+
+.app {
+  background-color: #121212;
+  color: #FFFFFF;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.app__title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #FFFFFF;
+}
+
+.app__counter {
+  display: flex;
+  gap: 20px;
+  color: #a3a3a3;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.app__search {
+  padding: 10px;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 20px;
+  background-color: #333333;
+  border: none;
+  border-radius: 25px;
+  color: #FFFFFF;
+  outline: none;
+  font-size: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.3s;
+}
+
+.app__search::placeholder {
+  color: #a3a3a3;
+}
+
+.app__search:focus {
+  box-shadow: 0 4px 15px rgba(29, 185, 84, 0.4);
+}
+
+.app__filters {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.app__filter-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  background-color: #282828;
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.app__filter-button:hover {
+  background-color: #1DB954;
+}
+
+.app__sort {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.app__sort label {
+  color: #a3a3a3;
+}
+
+.app__sort select {
+  padding: 5px;
+  background-color: #333333;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+}
+
+.app__delete-completed {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #ff4d4d;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+}
+
+.app__delete-completed:hover {
+  background-color: #e04343;
+}
