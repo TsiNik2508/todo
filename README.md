@@ -22,8 +22,8 @@
 1. Клонируйте репозиторий на ваш локальный компьютер:
 
    ```bash
-   git clone https://github.com/your-username/todo-app.git
-   cd todo-app
+   git clone https://github.com/TsiNik2508/todo.git
+   cd todo
    ```
 
 2. Установите зависимости с помощью npm:
@@ -78,7 +78,7 @@ This is a simple ToDo application that allows users to manage their task list. T
 1. Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/your-username/todo-app.git
+   git clone https://github.com/TsiNik2508/todo.git
    cd todo-app
    ```
 
