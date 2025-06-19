@@ -1,0 +1,55 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background: white;
+  border-top: 1px solid #e6e6e6;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+  color: #777;
+}
+
+.count {
+  font-weight: 300;
+}
+
+.filters {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 5px;
+}
+
+.filterButton {
+  padding: 3px 7px;
+  border: 1px solid transparent;
+  background: none;
+  color: #777;
+  font-size: 14px;
+  font-weight: 300;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: border-color 0.2s ease;
+}
+
+.filterButton:hover,
+.filterButton.active {
+  border-color: rgba(175, 47, 47, 0.2);
+}
+
+.clearButton {
+  border: none;
+  background: none;
+  color: #777;
+  font-size: 14px;
+  font-weight: 300;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.clearButton:hover {
+  color: #af5b5e;
+  text-decoration: underline;
+} 

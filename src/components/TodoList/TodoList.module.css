@@ -1,6 +1,9 @@
-.todo-list {
-  width: 100%;
-  max-width: 400px;
-  padding: 0;
-  margin: 0;
+.todoList {
+  background: white;
 }
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+} 

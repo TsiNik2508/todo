@@ -1,31 +1,31 @@
-// src/components/TodoList/TodoList.tsx
-
 import React from 'react';
-import TodoItem from '../TodoItem/TodoItem';
-import { Todo } from '../../types';
+import type { Todo } from '../../types';
+import { TodoItem } from '../TodoItem/TodoItem';
 import styles from './TodoList.module.css';
 
-interface Props {
+interface TodoListProps {
   todos: Todo[];
   onToggle: (id: number) => void;
   onDelete: (id: number) => void;
-  onEdit: (id: number, newText: string) => void; 
 }
 
-const TodoList: React.FC<Props> = ({ todos, onToggle, onDelete, onEdit }) => {
-  return (
-    <ul className={styles.todoList}>
-      {todos.map(todo => (
-        <TodoItem 
-          key={todo.id} 
-          todo={todo} 
-          onToggle={onToggle} 
-          onDelete={onDelete} 
-          onEdit={onEdit} 
-        />
-      ))}
-    </ul>
-  );
-};
+export const TodoList: React.FC<TodoListProps> = ({ todos, onToggle, onDelete }) => {
+  if (todos.length === 0) {
+    return null;
+  }
 
-export default TodoList;
+  return (
+    <section className={styles.todoList}>
+      <ul className={styles.list}>
+        {todos.map(todo => (
+          <TodoItem
+            key={todo.id}
+            todo={todo}
+            onToggle={onToggle}
+            onDelete={onDelete}
+          />
+        ))}
+      </ul>
+    </section>
+  );
+}; 

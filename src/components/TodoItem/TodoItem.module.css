@@ -1,130 +1,78 @@
 .todoItem {
-  background-color: #333333;
-  padding: 15px;
-  border-radius: 10px;
   display: flex;
-  gap: 10px; 
   align-items: center;
-  margin-bottom: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s;
+  justify-content: space-between;
+  padding: 15px 20px;
+  border-bottom: 1px solid #e6e6e6;
 }
 
-.todoItem:hover {
-  background-color: #3e3e3e;
+.todoItem:hover .deleteButton {
+  opacity: 1;
 }
 
-.todoItem__checkbox {
-  width: 18px;
-  height: 18px;
+.todoContent {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.checkbox {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ededed;
+  border-radius: 50%;
+  background: white;
   cursor: pointer;
-  appearance: none;
-  border: 2px solid #1DB954;
-  border-radius: 4px;
-  background-color: transparent;
-  position: relative;
-  transition: background-color 0.3s, border-color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  transition: border-color 0.2s ease;
 }
 
-.todoItem__checkbox:checked {
-  background-color: #1DB954;
-  border-color: #1DB954;
+.checkbox:hover {
+  border-color: #b3b3b3;
 }
 
-.todoItem__checkbox:checked::after {
-  content: '✔';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 12px;
-  color: #fff;
+.checkbox.checked {
+  border-color: #5dc2af;
+  background: #5dc2af;
 }
 
-.todoItem__text {
-  font-size: 1rem;
-  color: #FFFFFF;
-  flex-grow: 1;
-  transition: color 0.3s;
-  margin-left: 10px; 
+.checkmark {
+  width: 20px;
+  height: 20px;
+  fill: white;
 }
 
-.todoItem__textCompleted {
+.todoText {
+  font-size: 24px;
+  font-weight: 300;
+  color: #4d4d4d;
+  transition: color 0.2s ease;
+}
+
+.todoText.completed {
+  color: #d9d9d9;
   text-decoration: line-through;
-  color: #a3a3a3;
 }
 
-.todoItem__editInput {
-  background-color: #2e2e2e;
-  color: #fff;
-  border: 1px solid #555;
-  border-radius: 5px;
-  padding: 5px;
-  width: 100%;
-  font-size: 1rem;
-  margin-left: 10px; 
-}
-
-.todoItem__priority--high {
-  color: #ff4d4d;
-  font-weight: bold;
-}
-
-.todoItem__priority--medium {
-  color: #ffa500;
-}
-
-.todoItem__priority--low {
-  color: #1DB954;
-}
-
-.todoItem__dueDate {
-  color: #a3a3a3;
-  font-size: 0.9rem;
-  margin-left: auto;
-}
-
-.todoItem__deleteButton {
-  padding: 8px 12px;
-  background-color: #ff4d4d;
-  color: white;
+.deleteButton {
+  width: 40px;
+  height: 40px;
   border: none;
-  border-radius: 10px;
+  background: none;
+  color: #cc9a9a;
+  font-size: 30px;
+  font-weight: 300;
   cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  transition: opacity 0.2s ease, color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.todoItem__deleteButton:hover {
-  background-color: #e04343;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-
-.todoItem__overdue {
-  background-color: #ffcccc;
-}
-
-@media (max-width: 768px) {
-  .todoItem {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 15px;
-    text-align: left;
-  }
-
-  .todoItem__text {
-    margin-bottom: 10px;
-  }
-
-  .todoItem__dueDate {
-    margin-left: 0;
-    margin-top: 10px;
-  }
-
-  .todoItem__deleteButton, .todoItem__editInput {
-    width: 100%;
-    padding: 10px;
-    font-size: 0.9rem;
-  }
-}
+.deleteButton:hover {
+  color: #af5b5e;
+} 
